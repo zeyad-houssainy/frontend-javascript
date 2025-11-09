@@ -52,14 +52,14 @@ console.log(createEmployee("$500"));
 
 // functions specific to employees
 
-function isDirector(employee: Teacher | Director): boolean {
+function isDirector(employee: Teacher | Director): employee is Director {
   return employee instanceof Director;
 }
 
 function executeWork(employee: Teacher | Director): string {
-  if (employee instanceof Director) {
+  if (isDirector(employee)) {
     return employee.workDirectorTasks();
-  } else if (employee instanceof Teacher) {
+  } else {
     return employee.workTeacherTasks();
   }
 }

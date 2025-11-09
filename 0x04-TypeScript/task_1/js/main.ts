@@ -12,24 +12,20 @@ interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
-}
+type PrintTeacherFunction = (firstName: string, lastName: string) => string;
 
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
+const printTeacher: PrintTeacherFunction = (firstName, lastName) => {
   return `${firstName[0]}. ${lastName}`;
 };
 
-interface StudentConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
-}
+type StudentConstructor = new (firstName: string, lastName: string) => StudentClassInterface;
 
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-const StudentClass: StudentConstructor = class StudentClass implements StudentClassInterface {
+class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
 
@@ -43,6 +39,6 @@ const StudentClass: StudentConstructor = class StudentClass implements StudentCl
   displayName(): string {
     return this.firstName;
   }
-};
+}
 
 export { printTeacher, StudentClass };
