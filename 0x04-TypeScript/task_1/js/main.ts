@@ -19,9 +19,9 @@ interface printTeacherFunction {
 }
 
 // printTeacher function implementation
-const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
-  return `${firstName.charAt(0)}. ${lastName}`;
-};
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName[0]}. ${lastName}`;
+}
 
 // Interface for StudentClass constructor
 interface StudentConstructor {
@@ -36,8 +36,8 @@ interface StudentClassInterface {
 
 // StudentClass implementation
 class StudentClass implements StudentClassInterface {
-  firstName: string;
-  lastName: string;
+  private firstName: string;
+  private lastName: string;
 
   constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
