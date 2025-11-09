@@ -7,23 +7,27 @@
 export const cpp = new Subjects.Cpp();
 export const java = new Subjects.Java();
 export const react = new Subjects.React();
+
 export const cTeacher: Subjects.Teacher = {
-  firstName: "Bobby",
-  lastName: "Wine",
+  firstName: 'John',
+  lastName: 'Doe',
   experienceTeachingC: 10,
 };
 
-console.log("C++");
+// C++
+console.log('C++');
 cpp.setTeacher(cTeacher);
 console.log(cpp.getRequirements());
 console.log(cpp.getAvailableTeacher());
 
-console.log("Java");
+// Java
+console.log('Java');
 java.setTeacher(cTeacher);
 console.log(java.getRequirements());
 console.log(java.getAvailableTeacher());
 
-console.log("React");
+// React
+console.log('React');
 react.setTeacher(cTeacher);
 console.log(react.getRequirements());
 console.log(react.getAvailableTeacher());

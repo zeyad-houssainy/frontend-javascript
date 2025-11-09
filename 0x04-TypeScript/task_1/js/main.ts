@@ -1,30 +1,40 @@
+// Teacher interface with index signature for dynamic properties
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  contract: boolean;
   [propName: string]: any;
 }
 
+// Directors interface extending Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-type PrintTeacherFunction = (firstName: string, lastName: string) => string;
+// Function interface for printTeacher
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
 
-const printTeacher: PrintTeacherFunction = (firstName, lastName) => {
-  return `${firstName[0]}. ${lastName}`;
+// printTeacher function implementation
+const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+  return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-type StudentConstructor = new (firstName: string, lastName: string) => StudentClassInterface;
+// Interface for StudentClass constructor
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
 
+// Interface for StudentClass
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
+// StudentClass implementation
 class StudentClass implements StudentClassInterface {
   firstName: string;
   lastName: string;
@@ -33,12 +43,42 @@ class StudentClass implements StudentClassInterface {
     this.firstName = firstName;
     this.lastName = lastName;
   }
+
   workOnHomework(): string {
-    return "Currently working";
+    return 'Currently working';
   }
+
   displayName(): string {
     return this.firstName;
   }
 }
 
-export { printTeacher, StudentClass };
+// Testing Teacher interface
+const teacher3: Teacher = {
+  firstName: 'John',
+  fullTimeEmployee: false,
+  lastName: 'Doe',
+  location: 'London',
+  contract: false,
+};
+
+console.log(teacher3);
+
+// Testing Directors interface
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
+
+console.log(director1);
+
+// Testing printTeacher function
+console.log(printTeacher("John", "Doe"));
+
+// Testing StudentClass
+const student = new StudentClass("Alice", "Smith");
+console.log(student.displayName());
+console.log(student.workOnHomework());
