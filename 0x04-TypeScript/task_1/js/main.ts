@@ -16,8 +16,7 @@ interface printTeacherFunction {
     (firstName: string, lastName: string): string;
 }
 
-function printTeacher(firstName: string, lastName: string): string {
-  const name = { firstName, lastName };
-  return `${firstName}. ${lastName}`;
-}
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName}. ${lastName}`
+};
 
