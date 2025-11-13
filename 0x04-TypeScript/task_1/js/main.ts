@@ -12,11 +12,9 @@ interface Directors extends Teacher {
     numberOfReports: number;
 }
 
-interface printTeacherFunction {
-    (firstName: string, lastName: string): string;
-}
+// Another way to define an interface
+type PrintTeacherFunction = (firstName: string, lastName: string) => string;
 
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName}. ${lastName}`
+const printTeacher: PrintTeacherFunction = (firstName, lastName) => {
+    return `${firstName}. ${lastName}`
 };
-
